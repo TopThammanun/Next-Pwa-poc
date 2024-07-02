@@ -18,6 +18,7 @@ const RootLayout = (props: Props) => {
     <Fragment>
       <Head>
         <title>{process.env.NEXT_PUBLIC_PROJECT_NAME}</title>
+        <link rel='manifest' href='/manifest.json' />
         <link rel='icon' href='/favicon.ico' />
         <meta name='description' content='' />
         <meta name='keyword' content='' />

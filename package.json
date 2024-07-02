@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "env-cmd -f .env next dev -p 8080 --turbo",
-    "dev:local": "env-cmd -f .env.local next dev -p 8080 --turbo",
+    "dev": "env-cmd -f .env next dev -p 8080",
+    "dev:local": "env-cmd -f .env.local next dev -p 8080",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.7",
     "@emotion/is-prop-valid": "^1.2.2",
     "@iconify/react": "^4.1.1",
     "@nextui-org/react": "^2.4.2",
