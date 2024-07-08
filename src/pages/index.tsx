@@ -1,7 +1,6 @@
-import { Fragment, ReactElement, useEffect, useState } from 'react'
+import { Fragment, ReactElement } from 'react'
 import MainLayout from '@/layouts/main-layout'
 import RootLayout from '@/layouts/root-layout'
-import OnlineStatus from '@/components/onlineStatus'
 
 type Props = {}
 
@@ -10,7 +9,6 @@ const Home = (props: Props) => {
     <Fragment>
       <div className='flex flex-col gap-5'>
         <div className='flex flex-wrap items-center justify-center gap-5'>PWA-OFFLINE-MODE</div>
-        <OnlineStatus />
       </div>
     </Fragment>
   )

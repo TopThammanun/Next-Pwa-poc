@@ -12,6 +12,7 @@ import SwitchTheme from '@/components/switch-theme'
 import configLayout from '@/layouts/config-layout.json'
 import NProgress from 'nprogress'
 import useBreakpoint from '@/hooks/useBreakpoint'
+import OnlineStatus from '@/components/onlineStatus'
 
 type Props = {}
 
@@ -80,7 +81,10 @@ const Navbar = (props: Props) => {
               )}
             </div>
           </div>
-          <div className='flex items-center gap-2'>{!isMobile && <SwitchTheme />}</div>
+          <div className='flex items-center gap-4'>
+            <OnlineStatus />
+            <div className='flex items-center gap-2'>{!isMobile && <SwitchTheme />}</div>
+          </div>
         </Card>
       </nav>
     </Fragment>
