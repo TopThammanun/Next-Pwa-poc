@@ -1,28 +1,41 @@
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 const useOnlineStatus = () => {
-  const [status, setStatus] = useState<boolean | null>(null)
+  const [status, setStatus] = useState<boolean | null>(navigator.onLine)
+
+  const testConnect = async () => {
+    try {
+      const res = await axios.get('https://top-backend.vercel.app')
+      setStatus(true)
+    } catch (e) {
+      setStatus(false)
+    }
+  }
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setStatus(navigator.onLine)
+    const handleOnline = () => {
+      setStatus(true)
+      testConnect()
+    }
+    const handleOffline = () => {
+      setStatus(false)
+    }
 
-      const handleOnline = () => {
-        setStatus(true)
-      }
-      const handleOffline = () => {
-        setStatus(false)
-      }
-      window.addEventListener('online', handleOnline)
-      window.addEventListener('offline', handleOffline)
-      return () => {
-        window.removeEventListener('online', handleOnline)
-        window.removeEventListener('offline', handleOffline)
-      }
+    window.addEventListener('online', handleOnline)
+    window.addEventListener('offline', handleOffline)
+
+    if (navigator.onLine) {
+      testConnect()
+    } else {
+      setStatus(false)
+    }
+
+    return () => {
+      window.removeEventListener('online', handleOnline)
+      window.removeEventListener('offline', handleOffline)
     }
   }, [])
-
-  console.log('status online : ', status)
 
   const isOnline = () => {
     return status
