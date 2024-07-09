@@ -22,6 +22,8 @@ const useOnlineStatus = () => {
     }
   }, [])
 
+  console.log('status online : ', status)
+
   const isOnline = () => {
     return status
   }
