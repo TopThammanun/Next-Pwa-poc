@@ -24,12 +24,7 @@ const useOnlineStatus = () => {
 
     window.addEventListener('online', handleOnline)
     window.addEventListener('offline', handleOffline)
-
-    if (navigator.onLine) {
-      testConnect()
-    } else {
-      setStatus(false)
-    }
+    testConnect()
 
     return () => {
       window.removeEventListener('online', handleOnline)
