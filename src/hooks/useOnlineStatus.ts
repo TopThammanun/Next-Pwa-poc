@@ -6,7 +6,13 @@ const useOnlineStatus = () => {
 
   const testConnect = async () => {
     try {
-      const res = await axios.get('https://top-backend.vercel.app')
+      const res = await axios.get('https://top-backend.vercel.app', {
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          Pragma: 'no-cache',
+          Expires: '0'
+        }
+      })
       setStatus(true)
     } catch (e) {
       setStatus(false)
@@ -16,7 +22,6 @@ const useOnlineStatus = () => {
   useEffect(() => {
     const handleOnline = () => {
       setStatus(true)
-      testConnect()
     }
     const handleOffline = () => {
       setStatus(false)

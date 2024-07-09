@@ -4,14 +4,17 @@ import React, { Fragment, useEffect, useState } from 'react'
 import NoWifi from '@/icon/nowifi'
 import Wifi from '@/icon/wifi'
 import useOnlineStatus from '@/hooks/useOnlineStatus'
-import { Badge, Avatar, Chip } from '@nextui-org/react'
+import { Chip } from '@nextui-org/react'
+import { Spinner } from '@nextui-org/react'
 
 const OnlineStatus = () => {
   const { isOnline } = useOnlineStatus()
 
   return (
     <Fragment>
-      {isOnline() ? (
+      {isOnline() === null ? (
+        <Spinner color='warning' />
+      ) : isOnline() ? (
         <Chip size='md' className='p-2' color='success' variant='flat'>
           <div className='flex items-center'>
             <Wifi className='h-8 w-8 p-1 text-success-500' />
