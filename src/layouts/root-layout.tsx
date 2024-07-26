@@ -17,7 +17,7 @@ const RootLayout = (props: Props) => {
   return (
     <Fragment>
       <Head>
-        <title>{process.env.NEXT_PUBLIC_PROJECT_NAME}</title>
+        <title>{'PWA-OFFLINE-MODE'}</title>
         <link rel='manifest' href='/manifest.json' />
         <link rel='icon' href='/favicon.ico' />
         <meta name='description' content='' />

@@ -47,6 +47,11 @@ const Sidebar = (props: Props) => {
           <p className='truncate text-tiny text-default-400'>ผู้ดูแลระบบ</p>
         </div>
       </div>
+
+      <ScrollShadow className='-mr-6 h-full max-h-full py-6 pr-6'>
+        <SidebarMenu isCompact={isCompact} items={sectionItems} />
+      </ScrollShadow>
+
       <Spacer y={2} />
       <div className={cn('mt-auto flex flex-col', { 'items-center': isCompact })}>
         {isMobile && (
